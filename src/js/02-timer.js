@@ -53,7 +53,9 @@ const inputedDate = flatpickr(inputDate, options);
 startButton.addEventListener('click', () => {
   setInterval(() => {
     timeRemaining = convertMs(inputedDate.selectedDates[0].getTime() - new Date().getTime());
-    daysTimer.innerHTML = timeRemaining.days;
+    if ((inputedDate.selectedDates[0].getTime() - new Date().getTime()) < 0) {
+      return
+    } else daysTimer.innerHTML = timeRemaining.days;
     hoursTimer.innerHTML = timeRemaining.hours;
     minutesTimer.innerHTML = timeRemaining.minutes;
     secondsTimer.innerHTML = timeRemaining.seconds;
