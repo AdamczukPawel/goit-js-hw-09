@@ -22,7 +22,7 @@ const createAmountOfPromises = (event) => {
   let growingDelay = Number(firstDelay.value);
   let stepDelay = Number(delayStep.value);
   
-  for (let i = 0; i <= functionRunAmount.value; i++) {
+  for (let i = 1; i <= functionRunAmount.value; i++) {
     createPromise(i, growingDelay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
